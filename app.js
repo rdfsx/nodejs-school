@@ -1,5 +1,4 @@
 import {searchOption} from "./src/cli/options.js";
-import {readFile, readStd} from "./src/read/reader.js";
 import {writeFile, writeStd} from "./src/write/writer.js";
 import {parseConfig} from "./src/cli/parse.js";
 import {ConfigError} from "./src/errors/config.js";
@@ -14,9 +13,10 @@ try {
         throw new ConfigError("Не указан конфиг.\n");
     }
     if (input) {
-        readFile();
+        console.log(input);
     } else if (!input) {
-        readStd();
+        process.stdin.resume();
+        process.stdin.pipe(process.stdout);
     }
     if (output) {
         writeFile();
