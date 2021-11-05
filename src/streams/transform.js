@@ -1,6 +1,5 @@
 import {Transform} from "stream";
 import {encoder} from "../cipher/encryptor.js";
-import {parseConfig} from "../cli/parse.js";
 
 export class MyTransform extends Transform {
     constructor(config) {
@@ -19,20 +18,9 @@ export class MyTransform extends Transform {
     }
 }
 
-const config = parseConfig("C1-C1-R0-A");
-
-function trans(input) {
-    return new MyTransform(input);
-}
-
-process.stdin.resume();
-let str = process.stdin;
-
-function lol(wtf) {
+export function transformText(config, stream) {
     for (let c of config) {
-        wtf = wtf.pipe(trans(c));
+        stream = stream.pipe(new MyTransform(c));
     }
-    return wtf;
+    return stream;
 }
-
-lol(str).pipe(process.stdout);

@@ -9,8 +9,7 @@ process.stdin.on("data", function (input) {
     _input += input;
 });
 
-process.stdin.pipe(process.stdout);
 
-process.stdin.on("end", function () {
-    processThis(_input);
+process.stdin.on("end", function (line) {
+    processThis(line);
 });
