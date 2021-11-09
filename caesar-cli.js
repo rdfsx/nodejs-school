@@ -43,12 +43,7 @@ function main() {
         process.stderr.write(e.message);
         process.exit(1);
     }
-    // pipeline(   readStream,
-    //     ...yourarray,
-    //     writeStream,
-    //     (err) => {
-    //     .....
-    //     })
+
     transformText(configArray, readStream).pipe(writeStream);
 }
 
