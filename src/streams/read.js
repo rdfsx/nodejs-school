@@ -1,15 +1,19 @@
 import {Readable} from "stream";
 import fs from "fs";
+import {OpenFileError} from "../errors/files.js";
 
 
 export class MyReadable extends Readable {
     constructor(filename) {
         super();
+        if (!fs.existsSync(filename)) {
+            throw new OpenFileError(`Error open file for read: ${filename}\n`);
+        }
         this.filename = filename;
         this.fd = null;
     }
     _construct(callback) {
-        fs.open(this.filename, (err, fd) => {
+        fs.open(this.filename, "r", (err, fd) => {
             if (err) {
                 callback(err);
             } else {
