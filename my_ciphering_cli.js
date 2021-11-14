@@ -20,6 +20,9 @@ function main() {
 
     try {
         validateCountOfArgs();
+        if (!config){
+            throw new ConfigError("Empty config!\n");
+        }
         if (!config.match(/^((?:(?:C|R)(?:0|1)|(?:A)))+([\-](?:(?:C|R)(?:0|1)|(?:A)))*$/)) {
             throw new ConfigError("Invalid config!\n");
         } else {
