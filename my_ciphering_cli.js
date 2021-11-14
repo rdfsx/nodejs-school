@@ -18,6 +18,12 @@ function main() {
     let writeStream;
     let configArray;
 
+    let count_config = 0;
+    for (let arg of [config, input, output]) {
+        if (arg) {
+            count_config++;
+        }
+    }
     try {
         validateCountOfArgs();
         if (!config){
@@ -41,6 +47,9 @@ function main() {
             writeStream = process.stdout;
         } else {
             throw new OutputError("Invalid output!\n");
+        }
+        if (count_config * 2 !== process.argv.length - 2) {
+            throw new ConfigError("Too many arguments!\n");
         }
     } catch (e) {
         process.stderr.write(e.message);
