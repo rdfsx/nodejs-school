@@ -86,3 +86,29 @@ describe("Error Scenarios", () => {
         });
       });
 });
+
+describe("Success scenarios", () =>{
+
+  function searchConfig(args){
+    let indexFull;
+    let indexAlias;
+    if ((indexFull = args.indexOf("--config")) > 0) {
+      if (!args[indexFull + 1]) {
+        return null;
+      }
+      return args[indexFull + 1].toString();
+    } else if ((indexAlias = args.indexOf("-c")) > 0) {
+      return args[indexAlias + 1];
+    }
+    return null;
+  }
+
+  it("User passes correct sequence of symbols as argument for --config that matches regular expression;",
+      (done) => {
+    const ARGS = ['my_ciphering_cli', '-c', 'C0-R1-A', './input.txt'];
+    const regex = /^((?:(?:C|R)(?:0|1)|(?:A)))+([\-](?:(?:C|R)(?:0|1)|(?:A)))*$/;
+    let config = searchConfig(ARGS);
+    expect(config).toMatch(regex);
+    done();
+  });
+});
