@@ -1,7 +1,12 @@
 {
   "name": "nodejs-school",
   "version": "1.0.0",
-  "dependencies": {
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
-  "type": "module"
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
 }
