@@ -1,4 +1,5 @@
 const { spawn } = require('child_process');
+const fs = require("fs");
 
 const CONFIG = "C1-C1-R0-A";
 
@@ -110,5 +111,80 @@ describe("Success scenarios", () =>{
     let config = searchConfig(ARGS);
     expect(config).toMatch(regex);
     done();
+  });
+
+  describe("Take usage examples.", () => {
+    const INPUT_FILE = "./input.txt";
+    const OUTPUT_FILE = "./output.txt";
+
+    function writeInput() {
+      fs.writeFileSync(INPUT_FILE, "This is secret. Message about \"_\" symbol!");
+    }
+
+    function clearOutput() {
+      fs.open(OUTPUT_FILE, "w", () => {});
+    }
+
+    it("node my_caesar_cli -c \"C1-C1-R0-A\" -i \"./input.txt\" -o \"./output.txt\"", (done) => {
+      writeInput();
+      clearOutput();
+      const cp = spawn('node', ['my_ciphering_cli', '-c', 'C1-C1-R0-A', '-i', INPUT_FILE, '-o', OUTPUT_FILE]);
+      cp.on('close', () => {
+        try {
+          const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
+          expect(data).toBe("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
+          done();
+        } catch (e) {
+          done(e);
+        }
+      });
+    });
+
+    it("node my_ciphering_cli -c \"C1-C0-A-R1-R0-A-R0-R0-C1-A\" -i \"./input.txt\" -o \"./output.txt\"",
+        (done) => {
+      writeInput();
+      clearOutput();
+      const cp = spawn('node', ['my_ciphering_cli', '-c', 'C1-C0-A-R1-R0-A-R0-R0-C1-A', '-i', INPUT_FILE, '-o', OUTPUT_FILE]);
+      cp.on('close', () => {
+        try {
+          const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
+          expect(data).toBe("Vhgw gw wkmxkv. Ckwwoik onauv \"_\" wqcnad!");
+          done();
+        } catch (e) {
+          done(e);
+        }
+      });
+    });
+
+    it("node my_ciphering_cli -c \"A-A-A-R1-R0-R0-R0-C1-C1-A\" -i \"./input.txt\" -o \"./output.txt\"",
+        (done) => {
+          writeInput();
+          clearOutput();
+          const cp = spawn('node', ['my_ciphering_cli', '-c', 'A-A-A-R1-R0-R0-R0-C1-C1-A', '-i', INPUT_FILE, '-o', OUTPUT_FILE]);
+          cp.on('close', () => {
+            try {
+              const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
+              expect(data).toBe("Hvwg wg gsqfsh. Asggous opcih \"_\" gmapcz!");
+              done();
+            } catch (e) {
+              done(e);
+            }
+          });
+        });
+    it("node my_ciphering_cli -c \"C1-R1-C0-C0-A-R0-R1-R1-A-C1\" -i \"./input.txt\" -o \"./output.txt\"",
+        (done) => {
+          writeInput();
+          clearOutput();
+          const cp = spawn('node', ['my_ciphering_cli', '-c', 'C1-R1-C0-C0-A-R0-R1-R1-A-C1', '-i', INPUT_FILE, '-o', OUTPUT_FILE]);
+          cp.on('close', () => {
+            try {
+              const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
+              expect(data).toBe("This is secret. Message about \"_\" symbol!");
+              done();
+            } catch (e) {
+              done(e);
+            }
+          });
+        });
   });
 });
