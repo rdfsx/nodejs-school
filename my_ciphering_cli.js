@@ -10,9 +10,9 @@ import {validateCountOfArgs} from "./src/cli/validate.js";
 
 
 function main() {
-    const config = searchOption("--config", "-c");
-    const input = searchOption("--input", "-i");
-    const output = searchOption("--output", "-o");
+    const config = searchOption("--config", "-c", process.argv);
+    const input = searchOption("--input", "-i", process.argv);
+    const output = searchOption("--output", "-o", process.argv);
 
     let readStream;
     let writeStream;
@@ -25,7 +25,7 @@ function main() {
         }
     }
     try {
-        validateCountOfArgs();
+        validateCountOfArgs(process.argv);
         if (!config){
             throw new ConfigError("Empty config!\n");
         }
