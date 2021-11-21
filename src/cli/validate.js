@@ -19,4 +19,5 @@ export function validateCountOfArgs(args) {
             throw new ConfigError(`Too many arguments: ${arg}\n`);
         }
     }
+    return null;
 }

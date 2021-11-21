@@ -1,5 +1,6 @@
 import {parseConfig} from "../src/cli/parse.js";
 import {searchOption} from "../src/cli/options";
+import {validateCountOfArgs} from "../src/cli/validate";
 
 
 describe("Functions from the cli folder work correctly", () => {
@@ -31,14 +32,46 @@ describe("Functions from the cli folder work correctly", () => {
         },
     ]
 
-    test.each(CONFIG_CASES)('Search for options works correctly', (
-        {args, expected_input, expected_output, expected_config}) => {
-        const config = searchOption("--config", "-c", args);
-        const input = searchOption("--input", "-i", args);
-        const output = searchOption("--output", "-o", args);
-        expect(config).toBe(expected_config);
-        expect(input).toBe(expected_input);
-        expect(output).toBe(expected_output);
+    describe('Search for options works correctly', () => {
+        test.each(CONFIG_CASES)('$expected_input, $expected_output, $expected_config', (
+            {args, expected_input, expected_output, expected_config}) => {
+            const config = searchOption("--config", "-c", args);
+            const input = searchOption("--input", "-i", args);
+            const output = searchOption("--output", "-o", args);
+            expect(config).toBe(expected_config);
+            expect(input).toBe(expected_input);
+            expect(output).toBe(expected_output);
+        });
+    });
+
+    const VALIDATION_COUNT_CASES = [
+        {
+            args: ["-c", "-i", "-o"],
+            expected: null,
+        },
+        {
+            args: ["--config", "--input", "--output"],
+            expected: null,
+        },
+        {
+            args: ["--config", "--config"],
+            expected: "Too many arguments: -c\n",
+        },
+    ]
+
+
+    describe('Validate options count works correctly', () => {
+        test.each(VALIDATION_COUNT_CASES)('$args', ({args, expected}, done) => {
+            try{
+                const validate = validateCountOfArgs(args);
+                expect(validate).toBe(expected);
+                done();
+            } catch (e) {
+                expect(e.message).toBe(expected);
+                done();
+            }
+        });
+
     });
 
 });
