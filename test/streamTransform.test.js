@@ -1,9 +1,7 @@
 import fs from "fs";
 import {MyReadable} from "../src/streams/read";
-import {OpenFileError} from "../src/errors/files";
 import {MyTransform, transformText} from "../src/streams/transform";
 import {MyWritable} from "../src/streams/write";
-import {main} from "../index";
 
 describe('Testing MyTransform stream', () => {
 

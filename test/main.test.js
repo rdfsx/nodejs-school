@@ -1,6 +1,5 @@
 import {main} from "../index";
 import fs from "fs";
-import {searchOption} from "../src/cli/options";
 import {ConfigError} from "../src/errors/config";
 
 
