@@ -23,14 +23,14 @@ describe('Testing MyTransform stream', () => {
     })
 
     it('Should transform text', done => {
-        const readStream = new MyReadable("./input.txt");
-        const writeStream = new MyWritable("./output.txt");
         clearOutput();
         writeFile();
+        const readStream = new MyReadable("./input.txt");
+        const writeStream = new MyWritable("./output.txt");
         transformText(["C1", "C1", "R0", "A"], readStream).pipe(writeStream);
         writeStream.on("finish", () => {
             const data = fs.readFileSync(OUTPUT_FILE, "utf8");
-            expect(data).toBe("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
+            expect(data).toContain("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
             done();
         });
     });
