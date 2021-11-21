@@ -132,7 +132,7 @@ describe("Success scenarios", () =>{
       cp.on('close', () => {
         try {
           const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
-          expect(data).toBe("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
+          expect(data).toContain("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
           done();
         } catch (e) {
           done(e);
@@ -148,7 +148,7 @@ describe("Success scenarios", () =>{
       cp.on('close', () => {
         try {
           const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
-          expect(data).toBe("Vhgw gw wkmxkv. Ckwwoik onauv \"_\" wqcnad!");
+          expect(data).toContain("Vhgw gw wkmxkv. Ckwwoik onauv \"_\" wqcnad!");
           done();
         } catch (e) {
           done(e);
@@ -164,7 +164,7 @@ describe("Success scenarios", () =>{
           cp.on('close', () => {
             try {
               const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
-              expect(data).toBe("Hvwg wg gsqfsh. Asggous opcih \"_\" gmapcz!");
+              expect(data).toContain("Hvwg wg gsqfsh. Asggous opcih \"_\" gmapcz!");
               done();
             } catch (e) {
               done(e);
@@ -179,7 +179,7 @@ describe("Success scenarios", () =>{
           cp.on('close', () => {
             try {
               const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
-              expect(data).toBe("This is secret. Message about \"_\" symbol!");
+              expect(data).toContain("This is secret. Message about \"_\" symbol!");
               done();
             } catch (e) {
               done(e);

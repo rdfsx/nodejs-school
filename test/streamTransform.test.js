@@ -3,6 +3,7 @@ import {MyReadable} from "../src/streams/read";
 import {OpenFileError} from "../src/errors/files";
 import {MyTransform, transformText} from "../src/streams/transform";
 import {MyWritable} from "../src/streams/write";
+import {main} from "../index";
 
 describe('Testing MyTransform stream', () => {
 
@@ -24,10 +25,10 @@ describe('Testing MyTransform stream', () => {
     })
 
     it('Should transform text', done => {
-        clearOutput();
-        writeFile();
         const readStream = new MyReadable("./input.txt");
         const writeStream = new MyWritable("./output.txt");
+        clearOutput();
+        writeFile();
         transformText(["C1", "C1", "R0", "A"], readStream).pipe(writeStream);
         writeStream.on("finish", () => {
             const data = fs.readFileSync(OUTPUT_FILE, "utf8");

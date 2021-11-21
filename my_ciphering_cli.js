@@ -1,4 +1,8 @@
 import {main} from "./index.js";
 
-
-main(process.argv, process.stdin, process.stdout);
+try {
+    main(process.argv, process.stdin, process.stdout, () => {});
+} catch (e) {
+    process.stderr.write(e.message);
+    process.exit(1);
+}

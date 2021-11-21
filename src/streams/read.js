@@ -29,6 +29,10 @@ export class MyReadable extends Readable {
         });
     }
     _destroy(err, callback) {
-        fs.close(this.fd, (er) => callback(er || err));
+        if (this.fd) {
+            fs.close(this.fd, (er) => callback(er || err));
+        } else {
+            callback(err);
+        }
     }
 }

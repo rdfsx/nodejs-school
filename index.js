@@ -9,7 +9,7 @@ import {OutputError} from "./src/errors/output.js";
 import {validateCountOfArgs} from "./src/cli/validate.js";
 
 
-export function main(args, stdin, stdout) {
+export function main(args, stdin, stdout, callback) {
     const config = searchOption("--config", "-c", args);
     const input = searchOption("--input", "-i", args);
     const output = searchOption("--output", "-o", args);
@@ -24,37 +24,37 @@ export function main(args, stdin, stdout) {
             count_config++;
         }
     }
-    try {
-        validateCountOfArgs(args);
-        if (!config){
-            throw new ConfigError("Empty config!\n");
-        }
-        if (!config.match(/^((?:(?:C|R)(?:0|1)|(?:A)))+([\-](?:(?:C|R)(?:0|1)|(?:A)))*$/)) {
-            throw new ConfigError("Invalid config!\n");
-        } else {
-            configArray = parseConfig(config);
-        }
-        if (input) {
-            readStream = new MyReadable(input);
-        } else if (input === null) {
-            readStream = stdin;
-        } else {
-            throw new InputError("Invalid input!\n");
-        }
-        if (output) {
-            writeStream = new MyWritable(output);
-        } else if (output === null) {
-            writeStream = stdout;
-        } else {
-            throw new OutputError("Invalid output!\n");
-        }
-        if (count_config * 2 !== args.length - 2) {
-            throw new ConfigError("Too many arguments!\n");
-        }
-    } catch (e) {
-        process.stderr.write(e.message);
-        process.exit(1);
+
+    validateCountOfArgs(args);
+    if (!config){
+        throw new ConfigError("Empty config!\n");
+    }
+    if (!config.match(/^((?:(?:C|R)(?:0|1)|(?:A)))+([\-](?:(?:C|R)(?:0|1)|(?:A)))*$/)) {
+        throw new ConfigError("Invalid config!\n");
+    } else {
+        configArray = parseConfig(config);
+    }
+    if (input) {
+        readStream = new MyReadable(input);
+    } else if (input === null) {
+        readStream = stdin;
+    } else {
+        throw new InputError("Invalid input!\n");
+    }
+    if (output) {
+        writeStream = new MyWritable(output);
+    } else if (output === null) {
+        writeStream = stdout;
+    } else {
+        throw new OutputError("Invalid output!\n");
+    }
+    if (count_config * 2 !== args.length - 2) {
+        throw new ConfigError("Too many arguments!\n");
     }
 
+
     transformText(configArray, readStream).pipe(writeStream);
+    writeStream.on("finish", () => {
+        callback();
+    });
 }
