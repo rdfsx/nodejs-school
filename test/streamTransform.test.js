@@ -9,7 +9,7 @@ describe('Testing MyTransform stream', () => {
     const INPUT_FILE = "./input.txt";
 
     function clearOutput() {
-        fs.open(OUTPUT_FILE, "w", () => {});
+        fs.writeFileSync(OUTPUT_FILE, "");
     }
 
     function writeFile() {
@@ -31,6 +31,7 @@ describe('Testing MyTransform stream', () => {
         writeStream.on("finish", () => {
             const data = fs.readFileSync(OUTPUT_FILE, "utf8");
             expect(data).toContain("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
+            clearOutput();
             done();
         });
     });

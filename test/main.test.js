@@ -12,14 +12,15 @@ describe('Testing main function', () => {
     }
 
     function clearOutput() {
-        fs.open(OUTPUT_FILE, "w", () => {});
+        fs.writeFileSync(OUTPUT_FILE, "");
     }
     it('Should return the correct value', done => {
-        writeInput();
-        clearOutput();
-        main(['node', 'my_ciphering_cli', '-c', 'C1-C1-R0-A', '-i', INPUT_FILE, '-o', OUTPUT_FILE], "", "", () => {
-            const output = fs.readFileSync(OUTPUT_FILE, "utf8");
-            expect(output).toBe("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
+        fs.writeFileSync("./in.txt", "This is secret. Message about \"_\" symbol!");
+        fs.writeFileSync('./out.txt', "");
+        main(['node', 'my_ciphering_cli', '-c', 'C1-C1-R0-A', '-i', "./in.txt", '-o', './out.txt'], "", "", () => {
+            const output = fs.readFileSync('./out.txt', "utf8");
+            expect(output).toContain("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
+            fs.writeFileSync('./out.txt', "");
             done();
         });
     });

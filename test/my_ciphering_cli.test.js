@@ -122,17 +122,18 @@ describe("Success scenarios", () =>{
     }
 
     function clearOutput() {
-      fs.open(OUTPUT_FILE, "w", () => {});
+      fs.writeFileSync(OUTPUT_FILE, "");
     }
 
     it("node my_caesar_cli -c \"C1-C1-R0-A\" -i \"./input.txt\" -o \"./output.txt\"", (done) => {
-      writeInput();
-      clearOutput();
-      const cp = spawn('node', ['my_ciphering_cli', '-c', 'C1-C1-R0-A', '-i', INPUT_FILE, '-o', OUTPUT_FILE]);
+      fs.writeFileSync("./in.txt", "This is secret. Message about \"_\" symbol!");
+      fs.writeFileSync('./out.txt', "");
+      const cp = spawn('node', ['my_ciphering_cli', '-c', 'C1-C1-R0-A', '-i', "./in.txt", '-o', './out.txt']);
       cp.on('close', () => {
         try {
-          const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
+          const data = fs.readFileSync('./out.txt', {encoding: 'utf-8', flag: 'r'});
           expect(data).toContain("Myxn xn nbdobm. Tbnnfzb ferlm \"_\" nhteru!");
+          fs.writeFileSync('./out.txt', "");
           done();
         } catch (e) {
           done(e);
@@ -149,6 +150,7 @@ describe("Success scenarios", () =>{
         try {
           const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
           expect(data).toContain("Vhgw gw wkmxkv. Ckwwoik onauv \"_\" wqcnad!");
+          clearOutput();
           done();
         } catch (e) {
           done(e);
@@ -165,6 +167,7 @@ describe("Success scenarios", () =>{
             try {
               const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
               expect(data).toContain("Hvwg wg gsqfsh. Asggous opcih \"_\" gmapcz!");
+              clearOutput();
               done();
             } catch (e) {
               done(e);
@@ -180,6 +183,7 @@ describe("Success scenarios", () =>{
             try {
               const data = fs.readFileSync(OUTPUT_FILE, {encoding: 'utf-8', flag: 'r'});
               expect(data).toContain("This is secret. Message about \"_\" symbol!");
+              clearOutput();
               done();
             } catch (e) {
               done(e);

@@ -10,7 +10,7 @@ describe('Testing MyWritable stream', () => {
     const INPUT_FILE = "./input.txt";
 
     function clearOutput() {
-        fs.open(OUTPUT_FILE, "w", () => {});
+        fs.writeFileSync(OUTPUT_FILE, "");
     }
 
     function writeFile() {
@@ -40,7 +40,8 @@ describe('Testing MyWritable stream', () => {
         readStream.pipe(writeStream);
         writeStream.on("finish", () => {
             let data = fs.readFileSync("./output.txt", "utf8");
-            expect(data).toBe("This is secret. Message about \"_\" symbol!");
+            expect(data).toContain("This is secret. Message about \"_\" symbol!");
+            clearOutput();
             done();
         });
     });
