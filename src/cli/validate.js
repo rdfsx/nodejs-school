@@ -1,7 +1,6 @@
 import {ConfigError} from "../errors/config.js";
 
-export function validateCountOfArgs() {
-    let args = process.argv;
+export function validateCountOfArgs(args) {
     for (let i = 0;i < args.length; i++) {
         switch (args[i]) {
             case "--config":
@@ -20,4 +19,5 @@ export function validateCountOfArgs() {
             throw new ConfigError(`Too many arguments: ${arg}\n`);
         }
     }
+    return null;
 }

@@ -1,7 +1,23 @@
 {
   "name": "nodejs-school",
   "version": "1.0.0",
-  "dependencies": {
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
-  "type": "module"
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.4",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "collectCoverageFrom": [
+      "./**/*.js",
+      "!coverage/**/lcov-report/*.js"
+    ]
+  }
 }

@@ -5,10 +5,10 @@ import {OpenFileError} from "../errors/files.js";
 
 export class MyWritable extends Writable {
     constructor(filename) {
-        super();
         if (!fs.existsSync(filename)) {
             throw new OpenFileError(`Error open file for write: ${filename}\n`);
         }
+        super();
         this.filename = filename;
     }
     _construct(callback) {

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1637498633549" clover="3.2.0">
+  <project timestamp="1637498633549" name="All files">
+    <metrics statements="138" coveredstatements="129" conditionals="66" coveredconditionals="62" methods="34" coveredmethods="33" elements="238" coveredelements="224" complexity="0" loc="138" ncloc="138" packages="5" files="16" classes="16"/>
+    <package name="nodejs-school2">
+      <metrics statements="32" coveredstatements="26" conditionals="16" coveredconditionals="14" methods="3" coveredmethods="2"/>
+      <file name="index.js" path="/home/mikhail/WebstormProjects/nodejs-school2/index.js">
+        <metrics statements="28" coveredstatements="26" conditionals="16" coveredconditionals="14" methods="2" coveredmethods="2"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="23" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="10" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="29" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+      </file>
+      <file name="my_ciphering_cli.js" path="/home/mikhail/WebstormProjects/nodejs-school2/my_ciphering_cli.js">
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="nodejs-school2.src.cipher">
+      <metrics statements="40" coveredstatements="40" conditionals="21" coveredconditionals="21" methods="7" coveredmethods="7"/>
+      <file name="atbash.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/cipher/atbash.js">
+        <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="86" type="stmt"/>
+        <line num="5" count="86" type="cond" truecount="4" falsecount="0"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="11" count="80" type="cond" truecount="4" falsecount="0"/>
+        <line num="12" count="57" type="stmt"/>
+        <line num="13" count="57" type="stmt"/>
+        <line num="14" count="57" type="stmt"/>
+        <line num="15" count="57" type="stmt"/>
+        <line num="18" count="23" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+      </file>
+      <file name="caesar.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/cipher/caesar.js">
+        <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <line num="2" count="9" type="stmt"/>
+        <line num="3" count="9" type="stmt"/>
+        <line num="4" count="260" type="stmt"/>
+        <line num="5" count="260" type="cond" truecount="4" falsecount="0"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="8" count="245" type="cond" truecount="4" falsecount="0"/>
+        <line num="9" count="176" type="stmt"/>
+        <line num="12" count="69" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+      <file name="encryptor.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/cipher/encryptor.js">
+        <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="6" count="13" type="cond" truecount="5" falsecount="0"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="23" count="13" type="stmt"/>
+      </file>
+      <file name="rot8.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/cipher/rot8.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="nodejs-school2.src.cli">
+      <metrics statements="20" coveredstatements="20" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
+      <file name="options.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/cli/options.js">
+        <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="4" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="16" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+      </file>
+      <file name="parse.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/cli/parse.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="4" type="stmt"/>
+      </file>
+      <file name="validate.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/cli/validate.js">
+        <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="5" count="47" type="cond" truecount="3" falsecount="0"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="18" count="202" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="nodejs-school2.src.errors">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="config.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/errors/config.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+      </file>
+      <file name="files.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/errors/files.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+      </file>
+      <file name="input.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/errors/input.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="output.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/errors/output.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="nodejs-school2.src.streams">
+      <metrics statements="38" coveredstatements="35" conditionals="18" coveredconditionals="16" methods="16" coveredmethods="16"/>
+      <file name="read.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/streams/read.js">
+        <metrics statements="16" coveredstatements="14" conditionals="10" coveredconditionals="8" methods="7" coveredmethods="7"/>
+        <line num="8" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
+        <line num="24" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="0" type="stmt"/>
+      </file>
+      <file name="transform.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/streams/transform.js">
+        <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+      </file>
+      <file name="write.js" path="/home/mikhail/WebstormProjects/nodejs-school2/src/streams/write.js">
+        <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
+        <line num="8" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
